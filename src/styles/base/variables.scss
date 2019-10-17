@@ -1,0 +1,39 @@
+
+$primary-theme:#073C84;
+$primary-button:#219653;
+$secondary-button:linear-gradient(
+    to right,
+    #2f80ed,
+    #00b09b
+  );
+$primary-title:#2F80ED;
+
+
+@mixin hover($color,$background){
+    position: relative;
+    color: $color;
+    background: $background;
+     height:100%;
+     padding:0.7rem 1.5rem;
+     font-weight:600;
+     border-radius:5px;
+     &::before{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: rgba(0,0,0,0.2);
+      height: 0;
+      opacity: 0;
+      transition: 0.3s;
+    }
+     &:hover{
+      box-shadow:10px 18px 250px rgba(0, 0, 0, 0.25);
+      &::before{
+        height: 50%;
+        opacity: 1;
+      }
+     
+   }
+}

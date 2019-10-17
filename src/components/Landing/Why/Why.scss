@@ -1,0 +1,124 @@
+.Why {
+  position: relative;
+  padding: 5% 6%;
+  h2 {
+    font-size: 2.8rem;
+    color: #102649;
+    text-align: center;
+  }
+  .container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width:1300px;
+    margin:0 auto;
+    @media screen and(max-width:700px) {
+   flex-direction: column;
+      }
+    div {
+      width: 30%;
+      border-radius: 12px;
+      padding: 2rem 0;
+      padding-top: 6rem;
+      margin: 40px 28px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      @media screen and(max-width:700px) {
+        width:100%;
+        margin-bottom:10px;
+        padding-top:3rem;
+        }
+      img {
+        height: 40px;
+        width: auto;
+      }
+      h3 {
+        font-size: 1.7rem;
+        margin-top: 3rem;
+        color: #102649;
+      }
+      p {
+        color: rgba(16, 38, 73, 0.9);
+        font-size:14px;
+      }
+    }
+  }
+  .a {
+    top: 30%;
+    right: 25%;
+    animation-delay: 2s;
+    background: blue;
+  }
+  .b {
+    bottom: 45%;
+    right: 10%;
+    animation-delay: 4s;
+    background:pink;
+  }
+  .c {
+    top: 10%;
+    left: 30%;
+    animation-delay: 3s;
+    background: purple;
+  }
+  .d {
+    bottom: 13%;
+    left: 20%;
+    animation-delay: 5s;
+    background: green;
+  }
+  .e {
+    bottom: 17%;
+    right: 50%;
+    animation-delay: 7s;
+    background:rgb(136, 34, 4);
+  }
+  .f {
+    top: 50%;
+    left: 15%;
+    animation-delay: 6s;
+    background: rgb(7, 10, 141);
+
+  }
+  .g {
+    bottom: 65%;
+    left: 10%;
+    animation-delay: 1s;
+    background: rgb(119, 18, 40);
+  }
+  .h {
+    top: 67%;
+    right: 45%;
+    animation-delay: 3s;
+    background: rgb(250, 0, 0);
+  }
+  .i {
+    top: 30%;
+    left: 25%;
+    animation-delay: 2s;
+    background: rgb(18, 238, 73);
+  }
+  .j {
+    top: 10%;
+    right: 10%;
+    animation-delay: 0.8s;
+    background: rgb(226, 206, 21);
+  }
+  .k {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 1.4s;
+    background: rgb(13, 174, 196);
+
+  }
+  .l {
+    top: 40%;
+    left: 55%;
+    animation-delay: 2.7s;
+    background: rgb(230, 160, 11);
+  }
+}

@@ -1,0 +1,56 @@
+.Checkout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    margin:5rem auto;
+    max-width: 1800px;;
+    margin-bottom: 8rem;
+    div{
+        width:50%;
+        // background: grey;
+    }
+    .img-container{
+        @media screen and(max-width:700px) {
+          display: none;
+            }
+    }
+    img{
+        object-fit: cover;
+        height:45rem;
+        width:100%;
+    }
+    div:nth-child(2){
+        padding:0;
+        padding-left:6rem;
+        @media screen and(max-width:700px) {
+            width:100%;
+            justify-content: center;
+            padding:0;
+            }
+        h3{
+            font-size: 2.4rem;
+            margin-top:0;
+        }
+        p{
+            font-size: 13px;
+            width:80%;
+        }
+        .btn{
+            width: 80%;
+            margin-top: 3rem;
+            background: linear-gradient(
+              to right,
+              #2f80ed,
+              #00b09b
+            );
+            border: none;
+            min-height: 48px;
+            a {
+                color: white;
+                font-weight: bold;
+                font-family:firma-bold;
+              }
+        }
+    }
+}

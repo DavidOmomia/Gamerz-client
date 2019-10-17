@@ -1,0 +1,89 @@
+@import '../../styles/base/variables.scss';
+
+
+.form {
+  padding: 20% 15%;
+  padding-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  font-family: Sailec;
+  @media (max-width: 1200px) {
+    padding-top: 30%;
+  }
+  @media (max-width: 1000px) {
+      padding-top:40%;
+  }
+  h2 {
+    color: $primary-title;
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+    font-weight: bolder;
+    font-family: firma-bold;
+  }
+  .input-container {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .name {
+    display: flex;
+    justify-content: space-between;
+    div {
+      width: 47%;
+      div {
+        width: unset;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0.8rem 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000;
+    background: #ccc;
+    box-sizing: border-box;
+    &:focus {
+      color: black;
+      border: 1px solid $primary-title;
+      outline: none;
+      background: white;
+      box-shadow: 1px 28px 44px -4px rgba(0,0,0,0.59);
+    }
+  }
+  span {
+    font-size: 14px;
+    span {
+      color: $primary-title;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+  button {
+    background: $secondary-button;
+    border:none;
+    margin-top: 2rem;
+    padding: 0.8rem 1rem;
+    width: 40%;
+    font-weight:bold;
+    font-size: 1rem;
+  }
+  .error {
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .check {
+    width: unset;
+  }
+
+  ::placeholder {
+    color: #000;
+    font-weight: 100;
+    &:focus {
+      color: white;
+    }
+  }
+}
