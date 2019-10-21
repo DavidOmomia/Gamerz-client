@@ -1,0 +1,37 @@
+.account-statement-container{
+    margin:0 auto;
+    margin-top:4rem;
+    width:80%;
+    max-width:1350px;
+    .account-statement{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content:space-around;
+        div:nth-child(1){
+            background: linear-gradient(91.84deg, rgba(57, 109, 180, 0.53) 0.9%, #396DB4 0.9%);;
+        }
+        div:nth-child(2){
+            background:#508AE0;
+        }
+        div:nth-child(3){
+            background:#243696;
+        }
+        .info{
+            flex-basis: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding:4rem 4rem;
+            color:#fff;
+            box-sizing: border-box;
+            border-radius:5px;
+            p{
+                span{
+                    font-weight:bolder;
+                    font-size:18px;
+                }
+            }
+        }
+    }
+}

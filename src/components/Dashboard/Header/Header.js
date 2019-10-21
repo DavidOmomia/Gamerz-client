@@ -5,6 +5,10 @@ import logo from '../../../assets/images/Group.png';
 import card from '../../../assets/images/dashboard/check.jpg';
 import coinIcon from '../../../assets/images/dashboard/coin.svg';
 import cashIcon from '../../../assets/images/dashboard/cash.svg';
+import homeIcon from '../../../assets/images/dashboard/homeIcon.svg'
+import depositIcon from '../../../assets/images/dashboard/depositIcon.svg'
+import withdraw from '../../../assets/images/dashboard/withdrawIcon.svg'
+import game from '../../../assets/images/dashboard/gameIcon.svg'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -79,13 +83,13 @@ const Header = props => {
                 </div>
             </header>
             <div className="navigation-container">
-               <NavLink to={`${props.match.url}/home`}>Home</NavLink>                
+               <NavLink to={`${props.match.url}/home`}><div><img src={homeIcon}/></div><div>Home</div></NavLink>                
 
-               <NavLink to={`${props.match.url}/deposit`}>Deposit</NavLink>                
+               <NavLink to={`${props.match.url}/deposit`}><div><img src={depositIcon}/></div><div>Deposit</div></NavLink>                
 
-               <NavLink to={`${props.match.url}/withdraw`}>Withdraw</NavLink>                
+               <NavLink to={`${props.match.url}/withdraw`}><div><img src={withdraw}/></div><div>Withdraw</div></NavLink>                
 
-               <NavLink to={`${props.match.url}/game`}>Play Games</NavLink>
+               <NavLink to={`${props.match.url}/game`}><div><img src={game}/></div><div>Play Games</div></NavLink>
 
                <NavLink to={`${props.match.url}/transaction`}>Transactions</NavLink>
                 

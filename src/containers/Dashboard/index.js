@@ -8,6 +8,7 @@ import Games from '../../components/Dashboard/Routes/Games/Games';
 import Transactions from '../../components/Dashboard/Routes/Transactions/Transactions';
 import Deposit from '../../components/Dashboard/Routes/Deposit/Deposit';
 import Withdraw from '../../components/Dashboard/Routes/Withdraw/Withdraw';
+import Footer from '../../components/Landing/Footer/Footer'
 
 const GamerzDashboard = props => {
     return (
@@ -26,6 +27,7 @@ const GamerzDashboard = props => {
                 <Route path={`${props.match.path}/transaction`} component={Transactions} />
                 <Redirect to='/'/>
             </Switch>
+            <Footer/>
         </>
     );
 };

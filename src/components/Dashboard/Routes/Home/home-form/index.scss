@@ -1,0 +1,55 @@
+@import '../../../../../styles/base/variables.scss';
+
+.home-form {
+    display: flex;
+    margin: 5rem auto;
+    width: 55%;
+    justify-content: space-between;
+    align-items: flex-start;
+    .form-content {
+        width: 45%;
+        h3 {
+            color: #2f80ed;
+            font-family: Sailec;
+            margin-bottom: 2rem;
+            font-weight: lighter;
+        }
+        input {
+            width: 100%;
+            padding: 10px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #000;
+            background: #ccc;
+            font-family: Sailec;
+            box-sizing: border-box;
+            &:focus {
+                color: black;
+                border: 1px solid $primary-title;
+                outline: none;
+                background: white;
+            }
+        }
+    }
+    button {
+        cursor: pointer;
+        font-size: 15px;
+        min-height: 36px;
+        border-radius: 5px;
+        line-height: 24px;
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+        position: relative;
+        background: linear-gradient(to right, #2f80ed, #00b09b);
+        width: 40%;
+        margin: 0 60%;
+        margin-top: 1rem;
+    }
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 13px;
+}

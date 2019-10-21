@@ -5,14 +5,16 @@
   src: url(./assets/fonts/br-firma/BRFirmaCW-Bold.woff2);
 }
 @font-face {
+  font-family: firma;
+  // src: url(fonts/br-firma/BRFirmaCW-Bold.woff2);
+  src: url(./assets/fonts/br-firma/BRFirmaCW-Regular.woff2);
+}
+@font-face {
   font-family: Sailec;
   src: url(./assets/fonts/sailec/Sailec-Regular.woff2);
 }
 html{
   font-size:92.5%;
-  @media screen and(min-width:1500px) {
-    
-  }
 }
 
 html,body{
