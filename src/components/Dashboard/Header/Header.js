@@ -1,21 +1,24 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import logo from '../../../assets/images/Group.png';
 import card from '../../../assets/images/dashboard/check.jpg';
 import coinIcon from '../../../assets/images/dashboard/coin.svg';
 import cashIcon from '../../../assets/images/dashboard/cash.svg';
-import homeIcon from '../../../assets/images/dashboard/homeIcon.svg'
-import depositIcon from '../../../assets/images/dashboard/depositIcon.svg'
-import withdraw from '../../../assets/images/dashboard/withdrawIcon.svg'
-import game from '../../../assets/images/dashboard/gameIcon.svg'
+import homeIcon from '../../../assets/images/dashboard/homeIcon.svg';
+import depositIcon from '../../../assets/images/dashboard/depositIcon.svg';
+import withdraw from '../../../assets/images/dashboard/withdrawIcon.svg';
+import game from '../../../assets/images/dashboard/gameIcon.svg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 import './Header.scss';
 
 const Header = props => {
+   let {user} = useSelector(state=>state.auth)
+
     let Background = card;
+    let User = `${user.first_name} ${user.last_name}`;
     const style = {
         backgroundImage: `url(${Background})`
     };
@@ -31,11 +34,9 @@ const Header = props => {
                             <div className="nav-item">
                                 <a href="/" className="nav-content">
                                     <div>
-                                       
-                                        <img src={coinIcon} alt='coin'/>
+                                        <img src={coinIcon} alt="coin" />
                                     </div>
                                     <div>
-                                       
                                         Coin <span>500</span>
                                     </div>
                                 </a>
@@ -43,11 +44,9 @@ const Header = props => {
                             <div className="nav-item">
                                 <a href="/" className="nav-content">
                                     <div>
-                                       
-                                        <img src={cashIcon} alt='cash'/>
+                                        <img src={cashIcon} alt="cash" />
                                     </div>
                                     <div>
-                                       
                                         NGN <span>500,000</span>
                                     </div>
                                 </a>
@@ -55,19 +54,19 @@ const Header = props => {
                             <div className="dropdown">
                                 <div className="auth btn">
                                     <a href="#" className="nav-content">
-                                        Divine Olokor
+                                        {User}
                                     </a>
                                 </div>
                                 <div className="dropdown-content">
                                     <ul>
                                         <li>
-                                            <a href='/'>Buy Coin</a>
+                                            <a href="/">Buy Coin</a>
                                         </li>
                                         <li>
-                                            <a href='/'>My Profile</a>
+                                            <a href="/">My Profile</a>
                                         </li>
                                         <li>
-                                            <a href='/'>Log Out</a>
+                                            <a href="/">Log Out</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,16 +82,35 @@ const Header = props => {
                 </div>
             </header>
             <div className="navigation-container">
-               <NavLink to={`${props.match.url}/home`}><div><img src={homeIcon}/></div><div>Home</div></NavLink>                
+                <NavLink to={`${props.url}/home`}>
+                    <div>
+                        <img src={homeIcon} />
+                    </div>
+                    <div>Home</div>
+                </NavLink>
 
-               <NavLink to={`${props.match.url}/deposit`}><div><img src={depositIcon}/></div><div>Deposit</div></NavLink>                
+                <NavLink to={`${props.url}/deposit`}>
+                    <div>
+                        <img src={depositIcon} />
+                    </div>
+                    <div>Deposit</div>
+                </NavLink>
 
-               <NavLink to={`${props.match.url}/withdraw`}><div><img src={withdraw}/></div><div>Withdraw</div></NavLink>                
+                <NavLink to={`${props.url}/withdraw`}>
+                    <div>
+                        <img src={withdraw} />
+                    </div>
+                    <div>Withdraw</div>
+                </NavLink>
 
-               <NavLink to={`${props.match.url}/game`}><div><img src={game}/></div><div>Play Games</div></NavLink>
+                <NavLink to={`${props.url}/game`}>
+                    <div>
+                        <img src={game} />
+                    </div>
+                    <div>Play Games</div>
+                </NavLink>
 
-               <NavLink to={`${props.match.url}/transaction`}>Transactions</NavLink>
-                
+                <NavLink to={`${props.url}/transaction`}>Transactions</NavLink>
             </div>
         </>
     );

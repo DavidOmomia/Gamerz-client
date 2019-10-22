@@ -33,8 +33,8 @@ const SignUp = ({ values,isSubmitting }) => {
             </Field>
             </div> */}
             <label className='input-container'>
-                <Field type='checkbox' name='agree' checked={values.agree} className='check'/>
-               <span> I agree to the <span>Terms and Conditions</span></span>
+            
+               <p> <Field type='checkbox' name='agree' checked={values.agree} className='check'/> I agree to the Terms and Conditions</p>
             </label>
             <ErrorMessage name='agree' render={msg => <div className='error'>{msg}</div>}/>            
             <div className='input-container'>

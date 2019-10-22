@@ -9,13 +9,13 @@ section {
   .bg-image {
     height: 100%;
     position: ABSOLUTE;
-    width: 73%;
+    width: 70%;
     max-width:1300px;
-    left:25px;
-    transform:skew(45deg);
+    // left:25px;
+    // transform:skew(45deg);
     z-index: -1;
-    // border-top-right-radius: 25px;
-    // border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     background:#faf8f5 ;
   }
   a {
@@ -147,7 +147,7 @@ section {
         ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border:none;
         min-height: 48px;
-        width: 50%;
+        width: 52%;
         margin: 1rem 0;
         font-family: firma-bold;
         cursor: pointer;

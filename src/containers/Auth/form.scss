@@ -1,11 +1,12 @@
 @import '../../styles/base/variables.scss';
 
 .form {
-    padding: 20% 15%;
-    padding-bottom: 2rem;
     justify-content: center;
     align-items: center;
     font-family: Sailec;
+    width:60%;
+    margin:0 auto;
+    margin-top:7rem;
     @media (max-width: 1200px) {
         padding-top: 30%;
     }
@@ -114,14 +115,14 @@
       transform-origin: top left;
       transform: scaleY(1);
     }
-    // span {
-    //   font-size: 14px;
-    //   span {
-    //     color: $primary-title;
-    //     cursor: pointer;
-    //     font-weight: bold;
-    //   }
-    // }
+    span {
+      font-size: 14px;
+      span {
+        color: $primary-title;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
     button {
         background: $secondary-button;
         border: none;
@@ -130,6 +131,11 @@
         width: 40%;
         font-weight: bold;
         font-size: 1rem;
+        @media screen and(max-width:600px){
+          width:60%;
+          padding:0.5rem 1rem;
+          font-size:13px;
+        }
     }
     .error {
         color: red;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect,useRouteMatch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 import Header from '../../components/Dashboard/Header/Header';
@@ -11,6 +11,7 @@ import Withdraw from '../../components/Dashboard/Routes/Withdraw/Withdraw';
 import Footer from '../../components/Landing/Footer/Footer'
 
 const GamerzDashboard = props => {
+    let { path, url } = useRouteMatch();
     return (
         <>
             <Helmet>
@@ -18,13 +19,13 @@ const GamerzDashboard = props => {
                 <meta name="description" content="Earn cash while playing Gamerzs" />
                 <meta name="theme-color" content="#008f68" />
             </Helmet>
-            <Header match={props.match}/>
+            <Header url={url}/>
             <Switch>
-                <Route exact path={`${props.match.path}/home`} component={Home}/>
-                <Route path={`${props.match.path}/deposit`} component={Deposit} />
-                <Route path={`${props.match.path}/withdraw`} component={Withdraw} />
-                <Route path={`${props.match.path}/game`} component={Games} />
-                <Route path={`${props.match.path}/transaction`} component={Transactions} />
+                <Route exact path={`${path}/home`} component={Home}/>
+                <Route path={`${path}/deposit`} component={Deposit} />
+                <Route path={`${path}/withdraw`} component={Withdraw} />
+                <Route path={`${path}/game`} component={Games} />
+                <Route path={`${path}/transaction`} component={Transactions} />
                 <Redirect to='/'/>
             </Switch>
             <Footer/>
