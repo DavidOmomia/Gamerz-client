@@ -6,16 +6,18 @@ import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import * as Yup from 'yup';
-import { auth } from '../../store/actions/index';
+import { auth, login } from '../../store/actions/index';
 import './form.scss';
 
 const LogIn = props => {
-
-    const { isAuth, loading, error,user } = useSelector(state => state.auth);
+    const { isAuth, loading, error, user } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
-
-    let User = `${user.first_name} ${user.last_name}`;
+    let User;
+    let id=user
+    if (user) {
+        User = `${user.first_name} ${user.last_name}`;
+    }
 
     const logvalidationSchema = Yup.object().shape({
         email: Yup.string()
@@ -27,16 +29,26 @@ const LogIn = props => {
     });
 
     const handleSubmit = async (values, { setSubmitting, setErrors }) => {
-        await dispatch(auth('', values.email, values.password, 'login'));
-        if (error) {
-            console.log(error);
-            console.log(error.data.message);
+        // const result = await dispatch(auth('', values.email, values.password, 'login'));
+        try {
+            await dispatch(login(values));
+                alert(JSON.stringify(values, null, 2))
+                console.log(isAuth)
+                console.log(id)
+            if (isAuth) {
+                console.log(`/${User}/dashboard/home`);
+                props.history.push(`/${User}/dashboard/home`);
+            }
+        } catch (err) {
+            console.log('errlogin', err);
+            console.log('logerr', err);
+            console.log(err.message);
             store.addNotification({
                 title: 'AUTHENTICATION',
-                message: error.data.message,
+                message: err.message,
                 type: 'danger', // 'default', 'success', 'info', 'warning'
                 container: 'bottom-right', // where to position the notifications
-                animationIn: ['animated', 'fadeIn'], 
+                animationIn: ['animated', 'fadeIn'],
                 animationOut: ['animated', 'fadeOut'], // animate.css classes that's applied
                 dismiss: {
                     duration: 4000,
@@ -44,17 +56,8 @@ const LogIn = props => {
                     pauseOnHover: true
                 }
             });
-        } else {
-            console.log('hi world');
-            alert(JSON.stringify(values, null, 2))
-        }
-
-        if(isAuth){
-            console.log(`/${User}/dashboard/home`)
-            props.history.push(`/${User}/dashboard/home`);
-        }
-
         setSubmitting(false);
+        }
     };
 
     return (

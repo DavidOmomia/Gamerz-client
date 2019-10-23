@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     font-family: Sailec;
-    width:60%;
-    margin:0 auto;
-    margin-top:7rem;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 7rem;
     @media (max-width: 1200px) {
         padding-top: 30%;
     }
@@ -58,7 +58,7 @@
     }
     span {
         position: absolute;
-        background-color:  $primary-title;
+        background-color: $primary-title;
         transition: transform 0.7s ease;
         border-radius: 5px;
     }
@@ -77,51 +77,51 @@
         transform: scaleY(0);
     }
     .bottom {
-      bottom: 0;
-      transform-origin: bottom right;
+        bottom: 0;
+        transform-origin: bottom right;
     }
-    
+
     input:focus ~ .bottom {
-      transform-origin: bottom left;
-      transform: scaleX(1);
+        transform-origin: bottom left;
+        transform: scaleX(1);
     }
-    
+
     .right {
-      right: 0;
-      transform-origin: top right;
+        right: 0;
+        transform-origin: top right;
     }
-    
+
     input:focus ~ .right {
-      transform-origin: bottom right;
-      transform: scaleY(1);
+        transform-origin: bottom right;
+        transform: scaleY(1);
     }
-    
+
     .top {
-      top: 0;
-      transform-origin: top left;
+        top: 0;
+        transform-origin: top left;
     }
-    
+
     input:focus ~ .top {
-      transform-origin: top right;
-      transform: scaleX(1);
+        transform-origin: top right;
+        transform: scaleX(1);
     }
-    
+
     .left {
-      left: 0;
-      transform-origin: bottom left;
+        left: 0;
+        transform-origin: bottom left;
     }
-    
+
     input:focus ~ .left {
-      transform-origin: top left;
-      transform: scaleY(1);
+        transform-origin: top left;
+        transform: scaleY(1);
     }
     span {
-      font-size: 14px;
-      span {
-        color: $primary-title;
-        cursor: pointer;
-        font-weight: bold;
-      }
+        font-size: 14px;
+        span {
+            color: $primary-title;
+            cursor: pointer;
+            font-weight: bold;
+        }
     }
     button {
         background: $secondary-button;
@@ -131,10 +131,14 @@
         width: 40%;
         font-weight: bold;
         font-size: 1rem;
-        @media screen and(max-width:600px){
-          width:60%;
-          padding:0.5rem 1rem;
-          font-size:13px;
+        &:disabled {
+            opacity: 0.3;
+            color: red;
+        }
+        @media screen and(max-width:600px) {
+            width: 60%;
+            padding: 0.5rem 1rem;
+            font-size: 13px;
         }
     }
     .error {

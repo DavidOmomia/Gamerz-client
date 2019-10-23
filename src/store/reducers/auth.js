@@ -1,11 +1,12 @@
 import * as actionTypes from '../actions/actionTypes'
+import {Storage} from '../../services/storage-services'
 import { updatedObject } from "../Utility"
 
 const initialState = {
-    token: null,
+    token: Storage.checkAuthentication(),
     user: null,
     loading: false,
-    isAuth:null,
+    isAuth:!!Storage.checkAuthentication(),
     error:null
 }
 
@@ -35,6 +36,32 @@ const authReducer = (state = initialState, action) => {
                 user:null,
                 isAuth:null
             })    
+            case actionTypes.authConstants.LOGIN_REQUEST:
+                console.log('login request')
+                return {
+                  ...state,
+                  loading: true,
+                  error: {}
+                };
+              case actionTypes.authConstants.LOGIN_FAILURE:
+                return {
+                  ...state,
+                  loading: false,
+                  token: null,
+                  isAuth: false,
+                  error: action.errors.response.data
+                };
+              case actionTypes.authConstants.LOGIN_SUCCESS:
+                  console.log('reducer',action.user)
+                return {
+                  ...state,
+                  token: action.user.token,
+                  userTokenExpiration: action.user.expiresIn,
+                  isAuth: true,
+                  isLoading: false,
+                  user:action.user.user,
+                  errors: {}
+                };
         default:
             return state
     }

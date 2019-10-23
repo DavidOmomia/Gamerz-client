@@ -26,7 +26,11 @@ const App = props => {
         });
     }, []);
     const user = useSelector(state=>state.auth.user)
-    let User = `${user.first_name} ${user.last_name}`;
+    let User
+    if(user){
+     User = `${user.first_name} ${user.last_name}`;
+    }
+   
     const auth = localStorage.getItem('token')
     let routes = (
         <Switch>
