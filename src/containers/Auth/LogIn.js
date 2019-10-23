@@ -10,14 +10,13 @@ import { auth, login } from '../../store/actions/index';
 import './form.scss';
 
 const LogIn = props => {
-    const { isAuth, loading, error, user } = useSelector(state => state.auth);
+    const state = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
-    let User;
-    let id=user
-    if (user) {
-        User = `${user.first_name} ${user.last_name}`;
-    }
+    let text ='SUBMIT'
+    // if(loading){
+    //     text='Please wait...'
+    // }
 
     const logvalidationSchema = Yup.object().shape({
         email: Yup.string()
@@ -29,16 +28,13 @@ const LogIn = props => {
     });
 
     const handleSubmit = async (values, { setSubmitting, setErrors }) => {
-        // const result = await dispatch(auth('', values.email, values.password, 'login'));
         try {
             await dispatch(login(values));
-                alert(JSON.stringify(values, null, 2))
-                console.log(isAuth)
-                console.log(id)
-            if (isAuth) {
-                console.log(`/${User}/dashboard/home`);
-                props.history.push(`/${User}/dashboard/home`);
-            }
+                console.log(state)
+            // if (isAuth) {
+            //     console.log(`user successfully authenticated`);
+            //     props.history.push(`/dashboard/home`);
+            // }
         } catch (err) {
             console.log('errlogin', err);
             console.log('logerr', err);
@@ -93,7 +89,7 @@ const LogIn = props => {
                             <ErrorMessage name="password" render={msg => <div className="error">{msg}</div>} />
                         </div>
                         <div className="input-container">
-                            <button disabled={formProps.isSubmitting}>SUBMIT</button>
+                            <button disabled={formProps.isSubmitting}>{text}</button>
                         </div>
                     </Form>
                 );

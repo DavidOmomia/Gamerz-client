@@ -1,9 +1,9 @@
 import React from "react";
 
 import "./Why.scss";
-import play from "../../../assets/images/Play.png";
-import bet from "../../../assets/images/bet.png";
-import winning from "../../../assets/images/win.png";
+import play from "../../../assets/images/meet1.svg";
+import bet from "../../../assets/images/meet2.svg";
+import winning from "../../../assets/images/meet3.svg";
 const Why = props => {
   return (
     <section className='Why'>

@@ -17,19 +17,19 @@ import 'animate.css'
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import logger from 'redux-logger'
 //Reducers
 import authReducer from './store/reducers/auth'
 
 //Axios Configuration
-axios.defaults.baseURL = 'http://localhost:7000';
+// axios.defaults.baseURL = 'http://localhost:7000';
 
-axios.interceptors.request.use(function(config) {
-    const token = localStorage.getItem('token');
-    config.headers.Authorization = token;
-    return config;
-});
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+// axios.interceptors.request.use(function(config) {
+//     const token = localStorage.getItem('token');
+//     config.headers.Authorization = token;
+//     return config;
+// });
+// axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
 
 
 const rootReducer = combineReducers({
@@ -52,7 +52,7 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 // ));
 // const persistor = persistStore(store);
  const store = createStore(rootReducer,composeEnhancers(
-  applyMiddleware(thunk))
+  applyMiddleware(thunk,logger))
  )
 
 

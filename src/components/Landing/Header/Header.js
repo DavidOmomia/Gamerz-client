@@ -76,8 +76,8 @@ const Header = props => {
                         <Link to="/auth">GET STARTED</Link>
                     </div>
                     <div className="store-btn">
-                        <img src={playStore} alt="playstore" />
-                        <img src={appStore} alt="appstore" />
+                        <div><img src={playStore} alt="playstore" /></div>
+                        <div><img src={appStore} alt="appstore" /></div>
                     </div>
                 </div>
                 <div className="image-container">

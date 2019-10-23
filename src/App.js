@@ -25,16 +25,11 @@ const App = props => {
             duration: 2000
         });
     }, []);
-    const user = useSelector(state=>state.auth.user)
-    let User
-    if(user){
-     User = `${user.first_name} ${user.last_name}`;
-    }
    
-    const auth = localStorage.getItem('token')
+    const auth = localStorage.getItem('userToken')
     let routes = (
         <Switch>
-            <Route path={`/${User}/dashboard`} render={(props)=> auth?<Dashboard/>:<Redirect to='/auth'/>} />
+            <Route path={`/dashboard`} render={(props)=> auth?<Dashboard/>:<Redirect to='/auth'/>} />
             <Route path="/auth" component={Auth} />
             <Route path="/" exact component={Landing} />
             <Redirect to="/" />

@@ -5,6 +5,7 @@
     font-size: 2.8rem;
     color: #102649;
     text-align: center;
+    margin-bottom:6rem;
   }
   .container {
     display: flex;
@@ -32,12 +33,15 @@
         margin-bottom:10px;
         padding-top:3rem;
         }
+        @media screen and(max-width:900px) {
+        margin: unset;
+          }
       img {
-        height: 40px;
+        height: 130px;
         width: auto;
       }
       h3 {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
         margin-top: 3rem;
         color: #102649;
       }

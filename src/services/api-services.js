@@ -71,8 +71,6 @@ export default class APIRequest {
   logout = () => {
     Storage.removeItem('userToken');
     Storage.removeItem('refreshToken')
-
-    history.push('/');
   };
 
   setToken = token => {
@@ -90,7 +88,6 @@ export default class APIRequest {
 //   };
 
   logIn = async (data) => {
-      console.log('hello')
       //WHAT IS DATA
       console.log('api request',data)
     const body = {
