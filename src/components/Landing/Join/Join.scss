@@ -1,0 +1,93 @@
+.Join {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1400px;
+    padding: 10rem 20%;
+    padding-top:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .join-info {
+        display: flex;
+        flex-direction: column;
+    }
+    h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .btn {
+        width: 60%;
+        background: linear-gradient(to right, #2f80ed, #00b09b);
+        border: none;
+        min-height: 48px;
+        margin: 0 auto;
+        align-self: center;
+        a {
+            color: white;
+            font-weight: bold;
+            font-family: firma-bold;
+        }
+    }
+    img {
+        width: 80px;
+        height: auto;
+    }
+    .circle1 {
+        position: absolute;
+        left: 10%;
+        margin-left: -10px;
+        top: 10%;
+        margin-top: 0;
+        animation: orbit1 60s linear infinite;
+    }
+    .circle2 {
+        position: absolute;
+        right: 10%;
+        margin-left: -10px;
+        bottom: 10%;
+        margin-top: 0;
+        animation: orbit1 60s linear infinite;
+    }
+    .circle3 {
+        position: absolute;
+        left: 50%;
+        margin-right: -50px;
+        top: 30%;
+        margin-top: -30px;
+        animation: orbit2 60s linear infinite;
+    }
+    .circle4 {
+        position: absolute;
+        left: 50%;
+        margin-right: -10px;
+        bottom: 10%;
+        margin-bottom: 0;
+        animation: orbit2 60s linear infinite;
+    }
+    .circle5 {
+        position: absolute;
+        left: 50%;
+        margin-right: -50px;
+        top: 30%;
+        margin-top: -30px;
+        animation: orbit2 60s linear infinite;
+    }
+}
+
+@keyframes orbit2 {
+    from {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
+}
+@keyframes orbit1 {
+    from {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+    to {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+}

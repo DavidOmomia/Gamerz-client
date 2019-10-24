@@ -71,6 +71,7 @@ export default class APIRequest {
   logout = () => {
     Storage.removeItem('userToken');
     Storage.removeItem('refreshToken')
+    Storage.removeItem('userTokenExpiration')
   };
 
   setToken = token => {
@@ -101,20 +102,31 @@ export default class APIRequest {
     this.storeUserToken(authResponse.token, 'authResponse.refresh_token', authResponse.expiresIn);
 
     this.setToken(authResponse.token);
-    // client.setToken(authResponse.access_token);
-    // invoiceClient.setToken(authResponse.access_token);
-
-    // const profileResponse = await this.instance.get('/profile');
-    // return {
-    //   ...profileResponse.data.data,
-    //   ...response.data
-    // };
     const profileResponse = authResponse.user
     this.User = profileResponse
     return authResponse
   };
 
-   User=''
+  signUp = async (data) => {
+    //WHAT IS DATA
+    console.log('api request signup',data)
+  const body = {
+    ...data
+  };
+
+  const response = await this.instance.post('/register', body);
+  const authResponse = response.data;
+  console.log('authresponse',authResponse)
+
+  this.storeUserToken(authResponse.token, 'authResponse.refresh_token', authResponse.expiresIn);
+
+  this.setToken(authResponse.token);
+  const profileResponse = authResponse.user
+  this.User = profileResponse
+  return authResponse
+};
+
+
 
 
 //   refresh = async (token, client, invoiceClient) => {
@@ -137,10 +149,10 @@ export default class APIRequest {
 //     return authResponse;
 //   };
 
-  bootstrap = async () => {
-    const profileResponse = this.User
-    return profileResponse
-  };
+  // bootstrap = async () => {
+  //   const profileResponse = this.User
+  //   return profileResponse
+  // };
 
   getClientToken = async () => {
     const body = {

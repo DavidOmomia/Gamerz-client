@@ -4,6 +4,7 @@ import Header from '../../components/Landing/Header/Header'
 import Why from '../../components/Landing/Why/Why'
 import Transparency from '../../components/Landing/Transparency/Transparency'
 import Checkout from '../../components/Landing/checkout/Checkout'
+import Join from '../../components/Landing/Join/Join'
 import Slider from '../../components/Landing/Slider/Slider'
 import Footer from '../../components/Landing/Footer/Footer'
 import Sidenav from '../../components/UI/Sidenav/Sidenav'
@@ -24,6 +25,7 @@ const Landing = props => {
         <Transparency/>
         <Checkout/>
         <Slider/>
+        <Join/>
         <Footer/>
         </>
     )

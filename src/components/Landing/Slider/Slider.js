@@ -11,7 +11,7 @@ const Slider = props => {
 
     return(
         <>
-         <h3 style={{paddingLeft:'8%',fontSize:'2rem'}}>Backed By</h3>
+         <h3 style={{paddingLeft:'8%',fontSize:'2rem',marginTop:'9rem'}}>Backed By</h3>
 <div className="slider">
       <div className="slide-track">
         <div className="slide">

@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { NavLink,withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../../assets/images/Group.png';
 import card from '../../../assets/images/dashboard/check.jpg';
@@ -13,10 +13,17 @@ import game from '../../../assets/images/dashboard/gameIcon.svg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Header.scss';
+import { logout } from '../../../store/actions/auth';
 
 const Header = props => {
-   let {user} = useSelector(state=>state.auth)
-
+    let { user } = useSelector(state => state.auth);
+    let dispatch = useDispatch();
+    const logOutHandler = async e => {
+        console.log('log out')
+        e.preventDefault();
+       await dispatch(logout());
+        props.history.push('/')
+    };
     let Background = card;
     let User = `${user.first_name} ${user.last_name}`;
     const style = {
@@ -66,7 +73,9 @@ const Header = props => {
                                             <a href="/">My Profile</a>
                                         </li>
                                         <li>
-                                            <a href="/">Log Out</a>
+                                            <a href="#" onClick={logOutHandler}>
+                                                Log Out
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -116,4 +125,4 @@ const Header = props => {
     );
 };
 
-export default Header;
+export default withRouter(Header);

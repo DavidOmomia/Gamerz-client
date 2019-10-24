@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
-import {Storage} from '../../services/storage-services'
-import { updatedObject } from "../Utility"
+
 
 const initialState = {
     token:null,
@@ -13,7 +12,6 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
             case actionTypes.authConstants.LOGIN_REQUEST:
-
                 return {
                   ...state,
                   loading: true,
@@ -28,15 +26,44 @@ const authReducer = (state = initialState, action) => {
                   error: action.errors.response.data
                 };
               case actionTypes.authConstants.LOGIN_SUCCESS:
-                  return Object.assign({}, state, {
+                return {
+                  ...state,
+                  token: action.user.token,
+                  isAuth: true,
+                  loading: false,
+                  user:action.user.user,
+                };
+                case actionTypes.authConstants.LOGOUT:
+                  return {
+                    ...state,
+                    token: null,
+                    isAuth: false,
+                    loading: false,
+                    user:null,
+                  };
+
+                case actionTypes.authConstants.SIGNUP_REQUEST:
+                  return {
+                    ...state,
+                    loading: true,
+                    error: {}
+                  };
+                case actionTypes.authConstants.SIGNUP_FAILURE:
+                  return {
+                    ...state,
+                    loading: false,
+                    token: null,
+                    isAuth: false,
+                    error: action.errors.response.data
+                  };
+                case actionTypes.authConstants.SIGNUP_SUCCESS:
+                  return {
+                    ...state,
                     token: action.user.token,
                     isAuth: true,
                     loading: false,
-                    user:JSON.parse(JSON.stringify(action.user.user)),
-                  })
-                return {
-                  ...state,
-                };
+                    user:action.user.user,
+                  };
         default:
             return state
     }

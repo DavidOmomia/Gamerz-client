@@ -5,10 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 //Persistence
-// import { PersistGate } from 'redux-persist/lib/integration/react';
-// import { persistStore, persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
-// import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 //Asynchronous
 import thunk from 'redux-thunk';
 import axios from 'axios';
@@ -36,34 +36,34 @@ const rootReducer = combineReducers({
   auth: authReducer
 })
 
-// const persistConfig = {
-//   key: 'root',
-//   storage: storage,
-//   stateReconciler: autoMergeLevel2 ,
-//   blacklist:[]// see "Merge Process" section for details.
-// };
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  stateReconciler: autoMergeLevel2 ,
+  blacklist:[]// see "Merge Process" section for details.
+};
 
 //Configuring ReduxDevTools
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
-// const pReducer = persistReducer(persistConfig, rootReducer);
+const pReducer = persistReducer(persistConfig, rootReducer);
 
-// const store = createStore(pReducer, composeEnhancers(
-//   applyMiddleware(thunk)
-// ));
-// const persistor = persistStore(store);
- const store = createStore(rootReducer,composeEnhancers(
-  applyMiddleware(thunk,logger))
- )
+const store = createStore(pReducer, composeEnhancers(
+  applyMiddleware(thunk,logger)
+));
+const persistor = persistStore(store);
+//  const store = createStore(rootReducer,composeEnhancers(
+//   applyMiddleware(thunk,logger))
+//  )
 
 
 
 const app = (
   <Provider store={store}>
-  {/* <PersistGate loading={<h1>Hi There</h1>} persistor={persistor}> */}
+  <PersistGate loading={<h1>Hi There</h1>} persistor={persistor}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  {/* </PersistGate> */}
+  </PersistGate>
 </Provider>
 );
 

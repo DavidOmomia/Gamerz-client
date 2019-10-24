@@ -6,17 +6,17 @@ import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import * as Yup from 'yup';
-import { auth, login } from '../../store/actions/index';
+import { login } from '../../store/actions/index';
 import './form.scss';
 
 const LogIn = props => {
-    const state = useSelector(state => state.auth);
-
+    const { loading } = useSelector(state => state.auth);
     const dispatch = useDispatch();
-    let text ='SUBMIT'
-    // if(loading){
-    //     text='Please wait...'
-    // }
+
+    let text = 'SUBMIT';
+    if (loading) {
+        text = 'Please wait...';
+    }
 
     const logvalidationSchema = Yup.object().shape({
         email: Yup.string()
@@ -30,13 +30,9 @@ const LogIn = props => {
     const handleSubmit = async (values, { setSubmitting, setErrors }) => {
         try {
             await dispatch(login(values));
-                console.log(state)
-            // if (isAuth) {
-            //     console.log(`user successfully authenticated`);
-            //     props.history.push(`/dashboard/home`);
-            // }
+            return props.history.push(`/dashboard/home`);
+            
         } catch (err) {
-            console.log('errlogin', err);
             console.log('logerr', err);
             console.log(err.message);
             store.addNotification({
@@ -52,7 +48,7 @@ const LogIn = props => {
                     pauseOnHover: true
                 }
             });
-        setSubmitting(false);
+            setSubmitting(false);
         }
     };
 

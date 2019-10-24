@@ -26,11 +26,11 @@ const App = props => {
         });
     }, []);
    
-    const auth = localStorage.getItem('userToken')
+    const {isAuth} = useSelector(state=>state.auth)
     let routes = (
         <Switch>
-            <Route path={`/dashboard`} render={(props)=> auth?<Dashboard/>:<Redirect to='/auth'/>} />
-            <Route path="/auth" component={Auth} />
+            <Route path={`/dashboard`} render={(props)=> isAuth?<Dashboard/>:<Redirect to='/auth'/>} />
+    <Route path="/auth"  render={(props)=> isAuth?<Redirect to='/dashboard/home'/>:<Auth/>} />
             <Route path="/" exact component={Landing} />
             <Redirect to="/" />
         </Switch>
