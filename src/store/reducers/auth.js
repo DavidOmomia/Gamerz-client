@@ -1,11 +1,11 @@
 import * as actionTypes from '../actions/actionTypes'
-
+import {Storage} from '../../services/storage-services'
 
 const initialState = {
     token:null,
     user: null,
     loading: false,
-    isAuth:null,
+    isAuth:Storage.checkAuthentication(),
     error:null
 }
 

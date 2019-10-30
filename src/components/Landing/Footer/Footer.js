@@ -8,6 +8,7 @@ import './Footer.scss';
 
 const Footer = props => {
     return (
+        <section className='bground'>
         <footer>
             <div className='logo container '>
                 <div className='logo'>
@@ -72,6 +73,7 @@ const Footer = props => {
                 </div>
             </div>
         </footer>
+        </section>
     );
 };
 

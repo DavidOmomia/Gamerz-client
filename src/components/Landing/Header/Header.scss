@@ -74,6 +74,11 @@ section {
         display: block;
       } 
     }
+    .dash{
+      a{
+        color:#00b09b;
+      }
+    }
     .auth {
       margin-right: unset;
       background: linear-gradient(
@@ -91,7 +96,9 @@ section {
         transform: unset;
       }
     }
+   
   }
+ 
   
   .header-info {
     padding: 5rem 5%;

@@ -2,7 +2,10 @@
     height: 4.5rem;
     overflow: hidden;
     position: relative;
-    margin:0 8%;
+    width:85%;
+    margin:0 auto;
+    margin-top:1rem;
+    max-width: 1300px;
   }
   .slider::before {
     left: 0;
@@ -10,11 +13,11 @@
     box-sizing: border-box;
   }
   .slider::after {
-    background: linear-gradient(
-      to right,
-      white 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    // background: linear-gradient(
+    //   to right,
+    //   white 0%,
+    //   rgba(255, 255, 255, 0) 100%
+    // );
     content: "";
     height: 4.5rem;
     position: absolute;
@@ -31,8 +34,8 @@
     height: 2rem;
     width: 250px;
     img {
-      width: 250px;
-      height: 2rem;
+      width: 200px;
+      height: 1.5rem;
       vertical-align: middle;
       border-style: none;
     }

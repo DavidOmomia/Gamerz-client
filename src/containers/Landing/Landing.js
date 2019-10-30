@@ -24,8 +24,10 @@ const Landing = props => {
         <Why/>
         <Transparency/>
         <Checkout/>
-        <Slider/>
+       <section style={{background:'#effbf8',paddingTop:'4rem',marginTop:'8rem',paddingBottom:'6rem',marginBottom:'3rem'}}>
+       <Slider/>
         <Join/>
+       </section>
         <Footer/>
         </>
     )

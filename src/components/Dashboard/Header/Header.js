@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink,withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import logo from '../../../assets/images/Group.png';
+import logo from '../../../assets/images/dashboard/gamerzLogo.svg';
 import card from '../../../assets/images/dashboard/check.jpg';
 import coinIcon from '../../../assets/images/dashboard/coin.svg';
 import cashIcon from '../../../assets/images/dashboard/cash.svg';
@@ -35,7 +35,9 @@ const Header = props => {
                 <div className="background">
                     <nav>
                         <div className="logo">
+                            <NavLink to='/'>
                             <img src={logo} alt="logo" />
+                            </NavLink>
                         </div>
                         <div className="item">
                             <div className="nav-item">
@@ -119,7 +121,10 @@ const Header = props => {
                     <div>Play Games</div>
                 </NavLink>
 
-                <NavLink to={`${props.url}/transaction`}>Transactions</NavLink>
+                <NavLink to={`${props.url}/transaction`}>
+                <div>
+                        <img src={withdraw} />
+                    </div><div>Transactions</div></NavLink>
             </div>
         </>
     );

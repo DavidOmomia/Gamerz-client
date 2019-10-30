@@ -84,6 +84,9 @@ const Header = props => {
                             Developers
                         </a>
                     </div>
+                    {isAuth?<div className="nav-item dash">
+                       <Link to='/dashboard/home'>Dashboard</Link>
+                    </div>:''}
                     <div className="nav-item auth btn">
                         {!isAuth?<NavLink to="/auth">Sign In</NavLink>:<NavLink to="#" onClick={logOutHandler}>Log Out</NavLink>}
                     </div>

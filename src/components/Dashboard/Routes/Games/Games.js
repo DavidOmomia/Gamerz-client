@@ -10,12 +10,12 @@ import './Games.scss'
 
 const Games = props => {
     const games = [
-        { name: 'Whot', imageUrl: whot },
-        { name: 'Ludo', imageUrl: Ludo },
-        { name: 'Scrabble', imageUrl: scrabble },
-        { name: 'Chess', imageUrl: chess },
-        { name: 'Draft', imageUrl: draft },
-        { name: 'Solitaire', imageUrl: solitaire }
+        {id:1, name: 'Whot', imageUrl: whot },
+        {id:2, name: 'Ludo', imageUrl: Ludo },
+        {id:3, name: 'Scrabble', imageUrl: scrabble },
+        {id:4, name: 'Chess', imageUrl: chess },
+        {id:5, name: 'Draft', imageUrl: draft },
+        {id:6, name: 'Solitaire', imageUrl: solitaire }
     ];
 
     return (

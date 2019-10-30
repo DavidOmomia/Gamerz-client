@@ -46,7 +46,14 @@ export function IsJsonString(str) {
         Logger.error(error);
       }
     }
-  
+    
+    static clearItems(){
+      try{
+       localStorage.clear()
+      }catch(error){
+        Logger.error(error)
+      }
+    }
     static checkAuthentication() {
       let userToken;
       try {

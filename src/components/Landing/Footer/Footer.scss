@@ -1,9 +1,15 @@
+.bground{
+    background:#102649 ;
+    padding:8% 0;
+   
+}
 footer{
     display:flex;
     flex-direction: row;
     justify-content:space-between;
-    background:#102649 ;
-    padding: 8%;
+    width:90%;
+    margin:0 auto;
+    max-width:1310px;
     color:white;
     @media screen and(max-width:700px) {
        flex-direction: column;
