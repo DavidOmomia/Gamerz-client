@@ -1,8 +1,8 @@
 .Transparency {
   margin: 0 auto;
   background: rgba(238, 238, 238, 0.6);
-  padding: 3rem 2rem;
-  width:90%;
+  padding: 3rem 5rem;
+  width:75%;
   max-width:1310px;
   border-radius: 20px;
   display: flex;
@@ -17,7 +17,6 @@
     width: 47%;
     @media screen and(max-width:700px) {
       width:100%;
-      text-align: center;
       margin-bottom:2rem;
       }
   }
@@ -32,7 +31,7 @@
   }
   h3 {
     color: #2f80ed;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-family: Sailec;
     font-weight:bolder;
     // margin-bottom: 3rem;
@@ -46,13 +45,10 @@
     // margin:0 auto;
     opacity: 0.7;
     max-width: 85%;
-    @media screen and(max-width:600px) {
-      margin:0 auto;
-       }
   }
   .btn {
     width: 80%;
-    margin-top: 3rem;
+    margin-top: 1rem;
     background: linear-gradient(to right, #2f80ed, #00b09b);
     border: none;
     min-height: 48px;

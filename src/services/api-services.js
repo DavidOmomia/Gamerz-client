@@ -138,7 +138,7 @@ export default class APIRequest {
 
         const response = await this.instance.post('/register', body);
         const authResponse = response.data;
-
+        console.log('authsignup',authResponse)
         this.storeUserToken(authResponse.access_token, authResponse.refresh_token, authResponse.expires_in);
         this.setToken(authResponse.access_token);
         const user = await this.instance.get('/user')

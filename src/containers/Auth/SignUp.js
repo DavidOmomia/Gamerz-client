@@ -10,11 +10,11 @@ import * as Yup from 'yup';
 import './form.scss';
 import { signup } from '../../store/actions';
 const SignUp = props => {
-    const { loading,user } = useSelector(state => state.auth);
+    const { processing,user } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
     let text = 'SUBMIT';
-    if (loading) {
+    if (processing) {
         text = 'Please wait...';
     }
     const signUpvalidationSchema = Yup.object().shape({

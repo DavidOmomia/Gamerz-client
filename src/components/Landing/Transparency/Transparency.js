@@ -12,9 +12,7 @@ const Transparency = props => {
           Lorem ipsum Dolo id dfhv evkbe uve kve vhvbve igev vgev i jkev ibev
           iev iuevv vetgevkgevt kevbtketv kbdv uree jbdv jevtlorem ipsum dolor cb gjk obov nevie i fid cif iiii,v kev kev kbve kb
           Lorem ipsum Dolo id dfhv evkbe uve kve vhvbve igev vgev i jkev ibev
-          iev iuevv vetgevkgevt kevbtketv kbdv uree jbdv jevt lorem ipsum dolor cb gjk obov nevie i fid cif iiii,v kev kev kbve kb
-          Lorem ipsum Dolo id dfhv evkbe uve kve vhvbve igev vgev i jkev ibev
-          iev iuevv vetgevkgevt kevbtketv kbdv uree jbdv jevt
+        
         </p>
         <div className='button btn'>
             <a href='/'>POLICIES</a>

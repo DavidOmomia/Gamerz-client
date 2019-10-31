@@ -4,7 +4,7 @@ import {Storage} from '../../services/storage-services'
 const initialState = {
     token:null,
     user: null,
-    loading: false,
+    processing: false,
     isAuth:Storage.checkAuthentication(),
     error:null
 }
@@ -14,13 +14,13 @@ const authReducer = (state = initialState, action) => {
             case actionTypes.authConstants.LOGIN_REQUEST:
                 return {
                   ...state,
-                  loading: true,
+                  processing: true,
                   error: {}
                 };
               case actionTypes.authConstants.LOGIN_FAILURE:
                 return {
                   ...state,
-                  loading: false,
+                  processing: false,
                   token: null,
                   isAuth: false,
                   error: action.errors.response.data
@@ -30,7 +30,7 @@ const authReducer = (state = initialState, action) => {
                   ...state,
                   token: action.user.token,
                   isAuth: true,
-                  loading: false,
+                  processing: false,
                   user:action.user.user,
                 };
                 case actionTypes.authConstants.LOGOUT:
@@ -38,20 +38,20 @@ const authReducer = (state = initialState, action) => {
                     ...state,
                     token: null,
                     isAuth: false,
-                    loading: false,
+                    processing: false,
                     user:null,
                   };
 
                 case actionTypes.authConstants.SIGNUP_REQUEST:
                   return {
                     ...state,
-                    loading: true,
+                    processing: true,
                     error: {}
                   };
                 case actionTypes.authConstants.SIGNUP_FAILURE:
                   return {
                     ...state,
-                    loading: false,
+                    processing: false,
                     token: null,
                     isAuth: false,
                     error: action.errors.response.data
@@ -61,7 +61,7 @@ const authReducer = (state = initialState, action) => {
                     ...state,
                     token: action.user.token,
                     isAuth: true,
-                    loading: false,
+                    processing: false,
                     user:action.user.user,
                   };
         default:
@@ -82,20 +82,20 @@ export default authReducer
 // case actionTypes.AUTH_START:
 //         return updatedObject(state, {
 //             error: null,
-//             loading: true
+//             processing: true
 //         })
 //     case actionTypes.AUTH_SUCCESS:
 //         return updatedObject(state, {
 //             token: action.token,
 //             user: action.user,
 //             error: null,
-//             loading: false,
+//             processing: false,
 //             isAuth:action.auth
 //         })
 //     case actionTypes.AUTH_FAIL:
 //         return updatedObject(state, {
 //             error: action.error,
-//             loading: false
+//             processing: false
 //         })
 //     case actionTypes.AUTH_LOGOUT:
 //         return updatedObject(state,{

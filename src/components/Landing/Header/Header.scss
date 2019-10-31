@@ -36,7 +36,7 @@ section {
     justify-content: space-between;
     font-family: Sailec;
     padding: 0 5%;
-    max-width:1510px;
+    max-width:1710px;
     margin:0 auto;
     padding-top: 2rem;
     .logo{
@@ -117,7 +117,6 @@ section {
       margin-left:10px;
       @media screen and(max-width:700px) {
         width: 100%;
-        text-align: center;
         margin-bottom:3rem;
         }
       h1 {
@@ -169,7 +168,7 @@ section {
         transition: all 1s;
         @media screen and(max-width:800px) {
           width:75%;
-          min-height:36px;
+          min-height:50px;
           }
         @media screen and(max-width:700px) {
           width:100%;
@@ -210,11 +209,17 @@ section {
       width:100%;
       margin:0 auto;
       }
+      div{
+        width:50%;
+      }
     img {
       width: 90%;
       height: 53px;
       box-sizing: border-box;;
       cursor: pointer;
+      @media screen and(max-width:700px) {
+        width:100%;
+        }
     }
   }
   

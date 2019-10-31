@@ -38,7 +38,7 @@ const App = props => {
     useEffect(() => {
         const token =Storage.checkAuthentication()
         if(token){
-            console.log(token)
+
             const decoded = decode(token);
             console.log(decoded.exp)
             console.log( Date.now() / 1000)

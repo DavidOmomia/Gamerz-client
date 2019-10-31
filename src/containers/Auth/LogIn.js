@@ -10,11 +10,11 @@ import { login } from '../../store/actions/index';
 import './form.scss';
 
 const LogIn = props => {
-    const { loading } = useSelector(state => state.auth);
+    const { processing } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
     let text = 'SUBMIT';
-    if (loading) {
+    if (processing) {
         text = 'Please wait...';
     }
 
@@ -31,7 +31,6 @@ const LogIn = props => {
         try {
             await dispatch(login(values));
             return props.history.push(`/dashboard/home`);
-            
         } catch (err) {
             console.log('logerr', err);
             console.log(err.message);
