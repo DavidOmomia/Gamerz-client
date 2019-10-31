@@ -100,7 +100,7 @@ const Header = props => {
                     <h1>Make money with just a click or several clicks</h1>
                     <p>
                         With impressive interest rates, an app, tools & guides, this institution is the smartest way to bet your cash and
-                        still have fun with the game.
+                        still have fun with the game.!!!
                     </p>
                     <div className="btn">
                         <Link to="/auth">GET STARTED</Link>
