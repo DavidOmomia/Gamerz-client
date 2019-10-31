@@ -103,7 +103,7 @@ const Header = props => {
                         still have fun with the game.!!!
                     </p>
                     <div className="btn">
-                        <Link to="/auth">GET STARTED</Link>
+                        <Link to="/auth">GET STARTED NOW</Link>
                     </div>
                     <div className="store-btn">
                         <div>
