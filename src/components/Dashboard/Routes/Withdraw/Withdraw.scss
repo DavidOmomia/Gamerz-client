@@ -1,0 +1,172 @@
+@import '../../../../styles/base/variables.scss';
+
+.form {
+    font-family: Sailec;
+    width: 30%;
+    align-self: center;
+    max-width:500px;
+    margin:0 auto;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    @media (max-width: 1200px) {
+        padding-top: 30%;
+    }
+    @media (max-width: 1000px) {
+        padding-top: 40%;
+    }
+    @media (max-width: 600px) {
+        width: 80%;
+    }
+    h3 {
+        color: $primary-title;
+        font-size: 1.4rem;
+        font-weight: bolder;
+        font-family: Sailec;
+        letter-spacing: 1px;
+        margin-top: 0;
+    }
+    .input-container {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+    .animate {
+        position: relative;
+    }
+    .name {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 10px;
+        div {
+            width: 47%;
+            div {
+                width: unset;
+            }
+        }
+    }
+    .submit {
+        margin-top: 3rem;
+    }
+
+    input {
+        width: 100%;
+        padding: 1rem 10px;
+        background: rgba(196, 196, 196, 0.5);
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #000;
+
+        box-sizing: border-box;
+        transition: background-color 0.3s ease-in-out;
+        &:focus {
+            outline: none;
+            background: white;
+        }
+    }
+    span {
+        position: absolute;
+        background-color: $primary-title;
+        transition: transform 0.7s ease;
+        border-radius: 5px;
+    }
+    .bottom,
+    .top {
+        height: 1px;
+        left: 0;
+        right: 0;
+        transform: scaleX(0);
+    }
+    .left,
+    .right {
+        width: 1px;
+        top: 0;
+        bottom: 0;
+        transform: scaleY(0);
+    }
+    .bottom {
+        bottom: 0;
+        transform-origin: bottom right;
+    }
+
+    input:focus ~ .bottom {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+    }
+
+    .right {
+        right: 0;
+        transform-origin: top right;
+    }
+
+    input:focus ~ .right {
+        transform-origin: bottom right;
+        transform: scaleY(1);
+    }
+
+    .top {
+        top: 0;
+        transform-origin: top left;
+    }
+
+    input:focus ~ .top {
+        transform-origin: top right;
+        transform: scaleX(1);
+    }
+
+    .left {
+        left: 0;
+        transform-origin: bottom left;
+    }
+
+    input:focus ~ .left {
+        transform-origin: top left;
+        transform: scaleY(1);
+    }
+    span {
+        font-size: 14px;
+        span {
+            color: $primary-title;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+    button {
+        background: $secondary-button;
+        border: none;
+        padding: 0.9em 0;
+        width: 100%;
+        font-weight: bold;
+        font-size: 14px;
+        &:disabled {
+            opacity: 0.3;
+            color: red;
+        }
+        @media screen and(max-width:600px) {
+            width: 60%;
+            padding: 0.5rem 1rem;
+            font-size: 13px;
+        }
+    }
+    .error {
+        color: red;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .check {
+        width: unset;
+    }
+
+    ::placeholder {
+        color: #000;
+        opacity:0.5;
+        font-weight: 100;
+        &:focus {
+            color: white;
+        }
+    }
+    .terms {
+        font-size: 13px;
+    }
+}

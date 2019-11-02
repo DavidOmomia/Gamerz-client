@@ -11,7 +11,6 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 //Asynchronous
 import thunk from 'redux-thunk';
-import reqestMiddleware from './utils/requestMiddleware'
 import 'animate.css'
 
 import './index.scss';
@@ -20,7 +19,6 @@ import * as serviceWorker from './serviceWorker';
 import logger from 'redux-logger'
 //Reducers
 import authReducer from './store/reducers/auth'
-import requestMiddleware from './utils/requestMiddleware';
 
 //Axios Configuration
 // axios.defaults.baseURL = 'http://localhost:7000';
@@ -48,13 +46,14 @@ const persistConfig = {
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 const pReducer = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(pReducer,
-  applyMiddleware(thunk,logger)
-);
+// const store = createStore(pReducer,
+//   applyMiddleware(thunk,logger)
+// );
+ const store = createStore(pReducer,composeEnhancers(
+  applyMiddleware(thunk,logger))
+ )
 const persistor = persistStore(store);
-//  const store = createStore(rootReducer,composeEnhancers(
-//   applyMiddleware(thunk,logger))
-//  )
+
 
 
 

@@ -41,7 +41,9 @@ export function login(data) {
             console.log('UserDetails', userDetails);
             dispatch(success(userDetails));
         } catch (error) {
+            console.log('outside if',error)
             if (error instanceof APIServiceError) {
+                console.log(error)
                 dispatch(failure(error));
                 throw error.response.data;
             }

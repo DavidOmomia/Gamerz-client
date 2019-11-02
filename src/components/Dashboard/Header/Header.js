@@ -25,7 +25,10 @@ const Header = props => {
         props.history.push('/')
     };
     let Background = card;
-    let User = `${user.first_name} ${user.last_name}`;
+    let User
+    if(user){
+        User = `${user.first_name} ${user.last_name}`;
+    }
     const style = {
         backgroundImage: `url(${Background})`
     };

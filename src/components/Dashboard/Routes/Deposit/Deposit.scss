@@ -1,9 +1,15 @@
 @import '../../../../styles/base/variables.scss';
-
+.flex-card{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:80%;
+    margin:0 auto;
+}
 .form {
     font-family: Sailec;
-    width: 30%;
-    margin: 0 auto;
+    // width: 30%;
+    align-self: flex-end;
     max-width:500px;
     margin-top: 7rem;
     margin-bottom: 5rem;

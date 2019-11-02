@@ -62,6 +62,9 @@ export function IsJsonString(str) {
         Logger.error(error);
         return false;
       }
+      if(!userToken){
+        return false
+      }
       return userToken;
     }
   

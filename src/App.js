@@ -6,8 +6,7 @@ import APIrequest from './services/api-services';
 import { authConstants } from './store/actions/actionTypes';
 import { Storage } from './services/storage-services';
 import { logout } from './store/actions/auth';
-import decode from "jwt-decode";
-
+import decode from 'jwt-decode';
 
 import ReactNotification from 'react-notifications-component';
 import Landing from './containers/Landing/Landing';
@@ -36,23 +35,32 @@ const App = props => {
         });
     }, []);
     useEffect(() => {
-        const token =Storage.checkAuthentication()
-        if(token){
-
+        const token = Storage.checkAuthentication();
+        if (token) {
             const decoded = decode(token);
-            console.log(decoded.exp)
-            console.log( Date.now() / 1000)
-          if (decoded.exp < Date.now() / 1000) {
-              console.log(decoded.exp)
-              console.log( Date.now() / 1000)
-            // Checking if token is expired.
-            console.log('token expired')
-            return dispatch(logout())
-          } else{
-              console.log('token not expired')
-          }
+            console.log(decoded.exp);
+            console.log(Date.now() / 1000);
+            const refreshToken = Storage.getItem('refreshToken');
+            const refreshThreshold = Math.floor((Date.now() + 120000) / 1000);
+            console.log(refreshThreshold);
+            if (refreshToken && decoded.exp < refreshThreshold) {
+                // Checking if token is expired.
+                console.log('token expired,getting new one');
+                try {
+                    const refreshResponse = authAPiRequest.refresh(refreshToken);
+                    console.log('refresh response', refreshResponse);
+                } catch (error) {
+                    if (error.response && error.response.status === 401) {
+                        // if refresh token has expired, dispatch LOGOUT THINGS
+                        dispatch(logout());
+                        throw error;
+                    }
+                }
+            } else {
+                console.log('token not expired');
+            }
         }
-       
+
         // const exp = Storage.checkExpiration();
         // console.log(exp);
         // const refreshToken = Storage.getItem('refreshToken');
